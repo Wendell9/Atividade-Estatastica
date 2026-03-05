@@ -225,9 +225,8 @@ class AppEstatistica(ctk.CTk):
         # -----------------------------
         # DESVIO PADRÃO
         # -----------------------------
-        soma_var = sum((c['xm'] - media) for c in lista_classes)
-
-        desvio_padrao = math.sqrt(soma_var / n)
+        variancia = sum(c['fi'] * (c['xm'] - media)**2 for c in lista_classes) / n
+        desvio_padrao = math.sqrt(variancia)
 
         return media, mediana, label_moda, str_modas, desvio_padrao
 
